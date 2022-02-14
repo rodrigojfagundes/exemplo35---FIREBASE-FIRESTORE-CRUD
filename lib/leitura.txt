@@ -1,0 +1,112 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
+
+// TUTORIAL LINK
+// https://www.youtube.com/watch?v=hjGt7Jav1mM
+//
+void main() async {
+//inicializando o firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  //aguardando o firebase resposnder
+  await Firebase.initializeApp();
+//apos ele responder nos podemos colocar 1 POR vez codigos dos BLOCOS
+//de codigo a baixo
+
+// # 1
+//comando para ADD e MODIFICAR dados ao firebase
+//
+//FirebaseFirestore.instance
+//    .collection("produtos")
+//    .doc("produto2")
+//    .set({"nome": "caderno", "preco": 8.88, "ativo": false});
+//
+// #2
+//OBS: Usando o comando a baixo ele ADD, e cria um .DOC/DOCUMENTO
+//com nome um nome ALEARTORIO/RANDOMICO
+//
+//FirebaseFirestore.instance
+//      .collection("produtos")
+//      .add({"nome": "caderno", "preco": 8.88, "ativo": false});
+//
+//
+// #3
+//comando para ATUALIZAR/MODIFICAR apenas UM dos valores do DOC/DOCUMENTOS
+//
+//  FirebaseFirestore.instance.collection("produtos").doc("produto1").update({
+//    "nome": "caneta esferografica",
+//  });
+//
+// #4
+//lendo o q TUDO q esta na COLECAO/BANCO DE DADOS PRODUTOS
+//
+//  QuerySnapshot resultado =
+//      await FirebaseFirestore.instance.collection("produtos").get();
+//
+//  resultado.docs.forEach((indice) {
+//    print(indice.id);
+//    print(indice.data());
+//  });
+//
+//#5
+//alterando UM CAMPO/VALOR de TODOS os DOCUMENTOS da COLECAO/BANCO DE DADOS
+//
+//  QuerySnapshot resultado =
+//      await FirebaseFirestore.instance.collection("produtos").get();
+//
+//percorrendo os documentos (produto1 e produto2) e buscando por
+//o campo ATIVO e alterando ele de TRUE para FALSE
+//
+//  resultado.docs.forEach((indice) {
+//    indice.reference.update({"ativo": false});
+//  });
+//
+//#6
+//imprimindo apenas os VALORES/CAMPOS q estao no DOCUMENTO PRODUTO1
+//
+//  DocumentSnapshot resultado = await FirebaseFirestore.instance
+//      .collection("produtos")
+//      .doc("produto1")
+//      .get();
+//
+//  print(resultado.id);
+//  print(resultado.data());
+//
+//#7
+//Deletando as informacoes q na COLECAO/BD PRODUTOS, no DOCUMENTO
+//de nome PRODUTO2
+//  await FirebaseFirestore.instance
+//      .collection("produtos")
+//      .doc("produto2")
+//      .delete();
+//
+//#8
+//NOTIFICACAO quando um DOCUMENT é atualizado/valor MODIFICADO...
+//  FirebaseFirestore.instance
+//      .collection("produtos")
+//      .snapshots()
+//      .listen((resultado) {
+//    resultado.docs.forEach((indice) {
+//      print(indice.data());
+//    });
+//  });
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Container(),
+    );
+  }
+}
